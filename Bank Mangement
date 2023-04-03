@@ -1,0 +1,71 @@
+class Bank1:
+    accno=0    # to store the account number
+    name=""    # to store the user name
+    balance=0  # to store the account balance
+    
+    #function to open an account
+    def OpenAccount(self):
+        print("Enter Account number:")
+        self.accno=int(input())   # user enter account number
+        print("Enter Name")
+        self.name=input()         # user enters name 
+        print("Enter Minimum Balance")
+        self.balance=float(input()) #user enter intial amount
+        
+    #Function to show user details
+    def ShowAccount(self):     
+        print("User Account details of Canara Bank")
+        print("User Account number:",self.accno)
+        print("User name          :",self.name)
+        print("User Intial balance:",self.balance)
+        
+    #function to deposit
+    def Deposit(self):
+        amt=0
+        print("Enter the amount to be deposited")
+        amt=float(input())
+        self.balance+=amt 
+        print("Total amount:",self.balance)
+        
+    #Function for withdrawl
+    def Withdraw(self):
+        amt=0
+        print("Enter the amount to withdraw")
+        amt=float(input())
+        if self.balance>=amt:
+            self.balance-=amt
+        else:
+            print("Insufficient Balance")
+        print("Balance after Withdraw:",self.balance)
+        
+class Execute:
+    b1=Bank1()
+    print("*****************")
+    print("***Welcome***")
+    print("*****************")
+    while True:
+        print("Press any option for transaction")
+        print("1.OpenAccount \n2.ShowAccount \n3.Deposit \n4.Withdraw \n5.Exit")
+        print("Enter your Choice")
+        option=int(input())  #1,2,3,4,5
+        match option:
+            case 1:
+                print("Greeting sir/Madam")
+                print("Welcome for intial setup")
+                b1.OpenAccount()
+                
+            case 2:
+                b1.ShowAccount()
+                
+            case 3:
+                b1.Deposit()
+                
+            case 4:
+                b1.Withdraw()
+                
+            case 5:
+                print("Thank you for your Transactions")
+                break;
+    
+    
+    
